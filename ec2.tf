@@ -8,3 +8,11 @@ resource "aws_instance" "web" {
     Name = "abc"
   }
 }
+
+output "web_id" {
+    value = aws_instance.web.id
+}
+
+output "web" {
+    value = aws_instance.web.public_ip
+}
