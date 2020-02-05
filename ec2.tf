@@ -7,12 +7,14 @@ resource "aws_instance" "web" {
   tags = {
     Name = "abc"
   }
+
+  user_data = file("${path.module}/ec2-setup.sh")
 }
 
 output "web_id" {
     value = aws_instance.web.id
 }
 
-output "web" {
+output "web_ip" {
     value = aws_instance.web.public_ip
 }
